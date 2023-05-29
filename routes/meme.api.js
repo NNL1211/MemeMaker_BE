@@ -26,4 +26,18 @@ router.post("/", upload.single("image"),photoHelper.resize,memeController.create
   res.send({ status: "ok" });
 });
 
+/**
+ * @route GET api/memes/images
+ * @description Get list of original images
+ * @access Public
+ */
+router.get("/images", memeController.getOriginalImages);
+
+/**
+ * @route PUT api/memes/:id
+ * @description Update text on the meme
+ * @access Public
+ */
+router.put('/:id', memeController.updateMeme)
+
 module.exports = router;
